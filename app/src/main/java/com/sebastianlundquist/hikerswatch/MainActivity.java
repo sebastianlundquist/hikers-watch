@@ -38,19 +38,13 @@ public class MainActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onStatusChanged(String s, int i, Bundle bundle) {
-
-            }
+            public void onStatusChanged(String s, int i, Bundle bundle) { }
 
             @Override
-            public void onProviderEnabled(String s) {
-
-            }
+            public void onProviderEnabled(String s) { }
 
             @Override
-            public void onProviderDisabled(String s) {
-
-            }
+            public void onProviderDisabled(String s) { }
         };
 
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -87,10 +81,10 @@ public class MainActivity extends AppCompatActivity {
         TextView accTextView = findViewById(R.id.accuracyText);
         TextView addressTextView = findViewById(R.id.addressText);
 
-        latTextView.setText("Latitude: " + Double.toString(location.getLatitude()));
-        lonTextView.setText("Longitude: " + Double.toString(location.getLongitude()));
-        altTextView.setText("Altitude: " + Double.toString(location.getAltitude()));
-        accTextView.setText("Accuracy: " + Double.toString(location.getAccuracy()));
+        latTextView.setText("Latitude: " + location.getLatitude());
+        lonTextView.setText("Longitude: " + location.getLongitude());
+        altTextView.setText("Altitude: " + location.getAltitude());
+        accTextView.setText("Accuracy: " + location.getAccuracy());
 
         String address = "Could not find address.";
         Geocoder geocoder = new Geocoder(this, Locale.getDefault());
@@ -117,5 +111,4 @@ public class MainActivity extends AppCompatActivity {
         }
         addressTextView.setText(address);
     }
-
 }
